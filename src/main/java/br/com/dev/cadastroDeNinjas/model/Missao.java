@@ -1,6 +1,6 @@
 package br.com.dev.cadastroDeNinjas.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,23 +9,21 @@ import java.util.List;
 @Data
 @Entity
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_ninjas")
+@Table(name = "tb_missoes")
+@ToString(onlyExplicitlyIncluded = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Ninja {
+public class Missao {
 
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String email;
-    private Integer idade;
+    private String dificuldade;
 
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "missao_id", referencedColumnName = "id")
-    private Missao missao;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "missao")
+    private List<Ninja> ninjas;
 }
