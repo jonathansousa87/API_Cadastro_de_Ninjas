@@ -20,8 +20,14 @@ public class Ninja {
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private String email;
+
+//    @Column(name = "img_url")
+//    private String imgUrl;
+
     private Integer idade;
 
     @ManyToOne
