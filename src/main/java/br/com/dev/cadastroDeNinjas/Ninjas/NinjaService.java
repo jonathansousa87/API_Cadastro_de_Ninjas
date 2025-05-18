@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -13,13 +14,16 @@ public class NinjaService {
     private final NinjaRepository ninjaRepository;
     private final NinjaMapper ninjaMapper;
 
-    public List<Ninja> listarNinjas(){
-        return ninjaRepository.findAll();
+    public List<NinjaDto> listarNinjas(){
+        List<Ninja> ninjas = ninjaRepository.findAll();
+        return ninjas.stream()
+                .map(ninjaMapper::map)
+                .collect(Collectors.toList());
     }
 
-    public Ninja buscarPorId(Long id){
+    public NinjaDto buscarPorId(Long id){
          Optional<Ninja> ninja = ninjaRepository.findById(id);
-         return ninja.orElse(null);
+         return ninja.map(ninjaMapper::map).orElse(null);
     }
 
     public NinjaDto criarNinja(NinjaDto ninjaDto){
@@ -33,10 +37,13 @@ public class NinjaService {
         return "Ninja deletado";
     }
 
-    public Ninja atualizarNinja(Long id, Ninja ninja){
-        if (ninjaRepository.existsById(id)){
-            ninja.setId(id);
-            return ninjaRepository.save(ninja);
+    public NinjaDto atualizarNinja(Long id, NinjaDto ninjaDto){
+        Optional<Ninja> ninjaId = ninjaRepository.findById(id);
+        if (ninjaId.isPresent()){
+            Ninja ninjaUpDate = ninjaMapper.map(ninjaDto);
+            ninjaUpDate.setId(id);
+            Ninja ninjaSalvo = ninjaRepository.save(ninjaUpDate);
+            return ninjaMapper.map(ninjaSalvo);
         }
         return null;
 
