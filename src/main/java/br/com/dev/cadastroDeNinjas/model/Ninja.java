@@ -23,10 +23,14 @@ public class Ninja {
 
     private String nome;
 
+    @Column(unique = true)
     private String email;
 
-//    @Column(name = "img_url")
-//    private String imgUrl;
+    @Column(name = "rank")
+    private String rank;
+
+    @Column(name = "img_url")
+    private String imgUrl;
 
     private Integer idade;
 
