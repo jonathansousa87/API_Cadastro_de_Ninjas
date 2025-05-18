@@ -1,6 +1,6 @@
-package br.com.dev.cadastroDeNinjas.model;
+package br.com.dev.cadastroDeNinjas.Missoes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import br.com.dev.cadastroDeNinjas.Ninjas.Ninja;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;

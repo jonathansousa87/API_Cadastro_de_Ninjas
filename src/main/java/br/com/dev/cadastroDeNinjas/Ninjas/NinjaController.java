@@ -1,12 +1,9 @@
-package br.com.dev.cadastroDeNinjas.controller;
+package br.com.dev.cadastroDeNinjas.Ninjas;
 
-import br.com.dev.cadastroDeNinjas.model.Ninja;
-import br.com.dev.cadastroDeNinjas.service.NinjaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor

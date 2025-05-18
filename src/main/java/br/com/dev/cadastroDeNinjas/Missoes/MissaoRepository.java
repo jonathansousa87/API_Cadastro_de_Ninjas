@@ -1,6 +1,5 @@
-package br.com.dev.cadastroDeNinjas.repository;
+package br.com.dev.cadastroDeNinjas.Missoes;
 
-import br.com.dev.cadastroDeNinjas.model.Missao;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MissaoRepository extends JpaRepository<Missao, Long> {

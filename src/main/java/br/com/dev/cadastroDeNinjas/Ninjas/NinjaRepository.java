@@ -1,6 +1,5 @@
-package br.com.dev.cadastroDeNinjas.repository;
+package br.com.dev.cadastroDeNinjas.Ninjas;
 
-import br.com.dev.cadastroDeNinjas.model.Ninja;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NinjaRepository extends JpaRepository<Ninja, Long> {

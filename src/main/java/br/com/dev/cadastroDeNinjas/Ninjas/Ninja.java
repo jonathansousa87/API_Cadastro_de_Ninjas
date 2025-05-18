@@ -1,10 +1,9 @@
-package br.com.dev.cadastroDeNinjas.model;
+package br.com.dev.cadastroDeNinjas.Ninjas;
 
+import br.com.dev.cadastroDeNinjas.Missoes.Missao;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 @Data
 @Entity

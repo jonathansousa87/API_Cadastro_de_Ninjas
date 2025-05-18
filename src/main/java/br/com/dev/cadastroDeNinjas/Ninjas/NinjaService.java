@@ -1,7 +1,5 @@
-package br.com.dev.cadastroDeNinjas.service;
+package br.com.dev.cadastroDeNinjas.Ninjas;
 
-import br.com.dev.cadastroDeNinjas.model.Ninja;
-import br.com.dev.cadastroDeNinjas.repository.NinjaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
